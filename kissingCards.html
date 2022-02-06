@@ -1,0 +1,178 @@
+
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+
+  <meta charset="UTF-8">
+  
+<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+<meta name="apple-mobile-web-app-title" content="CodePen">
+
+<link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+<link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+
+
+  <title>CodePen - KissingCards</title>
+  
+  
+  
+  
+<style>
+.column {
+  float: left;
+}
+
+.left, .right {
+  width: 25%;
+}
+
+.middle {
+  width: 50%;
+}
+
+.container{
+  height: 280px;
+  width: 325px;
+  perspective: 500px;
+  position: relative;
+}
+
+.card {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: all 1s ease-in-out;
+}
+
+.card:hover {
+  transform: rotateY(180deg);
+}
+
+.card .side {
+  color: white;
+  font-family: "Lucida Handwriting", cursive;
+  backface-visibility: hidden;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: rgb(238,174,202);
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(233,197,148,1) 100%);
+}
+
+.card .back {
+  color: white;
+  font-family: "Lucida Console", "Courier New", monospace;
+  transform: rotateY(180deg);
+  background: rgb(238,174,202);
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+
+.card .boy{
+  background: white;
+  backface-visibility: hidden;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  text-align: center;
+}
+
+.card .boy2{
+  background: white;
+  backface-visibility: hidden;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transform: rotateY(180deg);
+  text-align: center;
+}
+
+.girl{
+  color: white;
+  transition: all 0.4s ease-in-out;
+}
+
+.girl:hover{
+  color: black;
+  transform: rotate(90deg); 
+  transform-origin: bottom left;
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+</head>
+
+<body translate="no" >
+  <div class="row">
+  <div class="column">
+    <div class="container">
+      <div class="card">
+        <div class="side">
+          <center>
+            <h1>Instructions</h1>
+            <img src="https://i.postimg.cc/QMBdQtgz/image.png" height="150px">
+          </center>
+        </div>
+
+        <div class="side back">
+          <h2>Let's see what happends if the boy blows a kiss.</h2>
+          <ol>
+            <li>
+              <h4>Place the cursor on the boy for him to blow the kiss.</h4>
+            </li>
+            <li>
+              <h4>Place the cursor on the girl to see her reaction.</h4>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="column">
+      <div class="container">
+        <div class="card">
+          <div class="boy">
+            <img src="https://i.postimg.cc/sfK1Ct2w/Screen-Shot-2022-01-16-at-2-28-34-PM.png">
+          </div>
+          
+          <div class="boy2">
+            <br><br>
+            <img src="https://i.postimg.cc/XY6vf31N/Screen-Shot-2022-01-16-at-2-28-47-PM.png">
+          </div>
+      </div>
+    </div>
+  </div>
+    
+  <div class="column">
+    <div class="girl">
+      <p>
+      *faints*
+      </p>
+      <img src="https://i.postimg.cc/HjDyKNHQ/chava.jpg" height="120px">
+    </div>
+  </div>
+</div>
+  
+  
+  
+  
+
+</body>
+
+</html>

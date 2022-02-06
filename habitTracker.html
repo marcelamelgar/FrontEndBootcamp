@@ -1,0 +1,295 @@
+<style>
+    body,
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.Routine {
+  width: 33.33%;
+  height: 260%;
+  float: left;
+  background-color: #f4a261;
+  border-collapse: collapse;
+  font-family: "Papyrus", fantasy;
+  color: white;
+}
+
+.todos {
+  width: 33.33%;
+  height: 260%;
+  float: left;
+  background-color: #a2d2ff;
+  border-collapse: collapse;
+  font-family: "Papyrus", fantasy;
+  color: white;
+}
+
+.excercise {
+  width: 33.33%;
+  height: 260%;
+  float: right;
+  background-color: #ffafcc;
+  border-collapse: collapse;
+  font-family: "Papyrus", fantasy;
+  color: white;
+}
+
+.excercise .workout {
+  height: 300px;
+  width: 100%;
+  float: right;
+  border-collapse: collapse;
+  background-color: #ffc8dd;
+}
+
+.Header {
+  width: 100%;
+  height: 130px;
+  position: fixed;
+  border-collapse: collapse;
+  background-color: #cdb4db;
+  color: white;
+  font-family: "Papyrus", fantasy;
+}
+
+.btn {
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color: #ffc8dd;
+  color: black;
+  border: 2px solid #ffafcc;
+  font-family: "Papyrus", fantasy;
+}
+
+.btn:hover {
+  background-color: #cdb4db;
+  color: white;
+}
+
+.boton {
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color: #98f5e1;
+  color: black;
+  border: 2px solid #a2d2ff;
+  font-family: "Papyrus", fantasy;
+}
+
+.boton:hover {
+  background-color: #b9fbc0;
+  color: black;
+}
+
+.check {
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color: #e9c46a;
+  color: black;
+  border: 2px solid #f4a261;
+  font-family: "Papyrus", fantasy;
+}
+
+.check:hover {
+  background-color: #d36060;
+  color: white;
+}
+</style>
+
+<body>
+    <div class="container">
+        <div class="Header">
+          <center>
+          <h1>Habit Tracker</h1>
+          <h3>How did I do today?</h3>
+          </center>
+        </div>
+        
+        <div class="Routine">
+          <br><br><br><br><br>
+          <center>
+          <h1>Routine Check</h1>
+          </center>
+          <h2>Complete each input to check if you completed your daily routine.</h2>
+          
+          <form id="routineF">
+        <input type="checkbox" id="r1" name="r1" value="bed">
+        <label for="r1"> Make bed</label><br>
+        <input type="checkbox" id="r2" name="r2" value="skin">
+        <label for="r2"> Skincare</label><br>
+        <input type="checkbox" id="r3" name="r3" value="shower">
+        <label for="r3"> Take a shower</label><br>
+        <input type="checkbox" id="r4" name="r4" value="teeth">
+        <label for="r4"> Brush Teeth</label><br>
+        <input type="checkbox" id="r5" name="r5" value="water">
+        <label for="r5"> Drink 2 liters of water</label><br>
+        <input type="checkbox" id="r6" name="r6" value="reading">
+        <label for="r6"> Read for 20min</label><br>
+        <input type="checkbox" id="r7" name="r7" value="prayer">
+        <label for="r7"> Say a prayer</label><br>
+        <br>
+            <center>
+        <input type="submit" value="Check" class="check" onclick="GetSelected()">
+            </center>
+      </form> 
+         </div>
+        
+        <div class="todos">
+          <br><br><br><br><br>
+          <center>
+          <h1>To do's</h1>
+          </center>
+          <h2>Get the list of things you have to do today!</h2>
+          <center>
+          <button class="boton" onclick="getList()">Get list </button>
+          </center>
+        </div>
+        
+        <div class="excercise">
+          <br><br><br><br><br>
+          <center>
+            <h1>Excercise</h1>
+          </center>
+          <h2>Your Workout Plan is the following:</h2>
+          <card class="workout">
+          <ol><strong>
+            <li>
+              <p>25 squats</p>
+            </li>
+            <li>
+              <p>30 pushups</p>
+            </li>
+            <li>
+              <p>30 forward lunges</p>
+            </li>
+            <li>
+              <p>45s wall sit</p>
+            </li>
+            <li>
+              <p>50 jumping jacks</p>
+            </li>
+            <li>
+              <p>30 crunches</p>
+            </li>
+            <li>
+              <p>45s plank</p>
+            </li>
+            </strong></ol>
+            </card>
+          <h3>To make sure you complete the 5 rounds, track each round by pressing the 'Track' button!</h3>
+          <center>
+          <button class="btn" id="tracked" onclick="roundTracker()">Track </button>
+          </button>
+          <h5>You just finished round <span id="roundT">0</span></h5>
+        </div>
+      </div>
+</body>
+
+<script>
+    /*
+Routine, comparar si se completo la rutina diaria segun lo realizado en el dia. GUIDED CODE BY aspsnippets!
+*/
+
+function GetSelected() {
+  var yes = new Array();
+  var completed = document.getElementById("routineF");
+  var fixed_routine = ["bed","skin","shower","teeth","water","reading","prayer"];
+ 
+    var userChecked = routineF.getElementsByTagName("INPUT");
+ 
+    for (var i = 0; i < userChecked.length; i++) {
+      if (userChecked[i].checked) {
+        yes.push(userChecked[i].value);
+        }
+    }
+    
+    var completed = true;
+
+    if(yes.length < fixed_routine.length){
+      completed = false;
+      alert('You did not complete your daily routine');
+    }
+    else{
+      console.log(yes)
+      console.log(fixed_routine)
+      alert('You completed your daily routine!')
+    }
+  };
+
+/*
+Obtener la lista de cosas que se tienen que hacer en el dia
+*/
+
+var to_do_due = [true, false, true, true, true, true];
+
+var to_do = ['read ch.2 Hayek', 'power point presentation about cities', 'pick up dry cleaners',  'call and program a dentist appointment', 'call and catch up with grandma', 'do the dishes'];
+
+function getList(){
+  var urgent = true;
+  console.log(to_do);
+  alert("Today's to do list:\n" + to_do.join("\n"));
+  for (var i = 0; i < to_do_due.length; i++){
+    for(var j = 0; j < to_do.length; j++){
+      if(!to_do_due[i]){
+      urgent = false;
+      alert('REMEMBER!\n' + to_do[i] + ' is not urgent');
+        break;
+    }
+    }
+  }
+}
+
+/*
+track each round
+*/
+var counter = 0;
+var btn = document.getElementById("tracked");
+var print = document.getElementById("roundT");
+
+function roundTracker() {
+  counter++;
+  print.innerHTML = counter;
+
+  if(counter == 1){
+    alert("great start! keep up!")
+  }
+  else if(counter == 2){
+    alert("you are doing great!")
+  }
+  else if(counter == 3){
+    alert("more than half way there, let's go!")
+  }
+  else if(counter == 4){
+    alert("you are almost done, come on champ!")
+  }
+  else{
+    alert("well done! I'm proud of you.")
+  }
+}
+
+
+</script>
